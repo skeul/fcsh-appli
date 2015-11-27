@@ -1,0 +1,29 @@
+<section class="view" id="#actu_view" ng-controller="actuControl" >
+    <section class="content" ng-class="{visible: panel == 0}">
+        <article ng-repeat="p in posts.posts" id="{{$index}}" class="col-xs-12" >
+
+            <div class="blog-item-container ">
+
+                <div class="col-xs-4 blog-media">
+                    <img src="{{p.attachments[0].images.thumbnail.url}}">
+                </div>
+                <div class="col-xs-8 date_block">
+                    <span class="left">{{p.author.name}}</span><span class="right">{{p.date | date_format:'dd MMM yyyy'}}</span>
+                </div>
+                <div class="col-xs-8 blog-top">
+                    <a href="#" class="blog-title" ng-click="share_id(p.id)">
+                        {{p.title}}
+                    </a>  
+                </div>
+            </div>
+        
+        </article>
+    </section>
+    <section class="content" ng-class="{visible: panel == 1}">
+        <article id="the_post" ng-class="{visible: panel == 1}">
+            azertyjokbopmfdsj
+        </article>
+    </section>
+</section>
+
+

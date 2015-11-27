@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no">
+
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="default-src http://fcsh.fr 'self' 'unsafe-inline' data: gap: https://ssl.gstatic.com  'unsafe-eval'; connect-src http://fcsh.fr 'self'  'unsafe-inline' ; script-src http://fcsh.fr 'self'; frame-src 'self' ; style-src 'self' 'unsafe-inline';  media-src *">
+
+    <title>Football Club Ste Hélène sur Isère</title>
+
+    <link href="css/index.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body class="app">
+    <div class="first-container">
+        <div class="pusher-container">
+            <nav class="nav-menu" id="menu">
+                    <ul>
+                    <li><a href="#home" ng-class="{current: menu.dir == 'home'}">Accueil</a></li>
+                    <li><a href="#actu" ng-class="{current: menu.dir == 'actu'}">Actualités</a></li>
+                    <li><a href="#result" ng-class="{current: menu.dir == 'result'}">Résultats</a></li>
+                    <li><a href="#class" ng-class="{current: menu.dir == 'class'}">Classements</a></li>
+                    <li><a href="#setting" ng-class="{current: menu.dir == 'setting'}">Réglages</a></li>
+                    <li><a href="#admin" ng-class="{current: menu.dir == 'admin'}">Administration</a></li>
+                    </ul>
+                </nav>
+
+            <header class="header">
+                  
+            <div id="button-menu" >
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+            {{menu.header}}
+        </header>
+        <section class="main-view" ng-view></section>
+        </div>
+    </div>
+
+
+
+
+    <script src="cordova.js"></script>
+    <script src="scripts/jquery-1.11.3.min.js"></script>
+    <script src="scripts/fastclick.js"></script>
+    <script src="scripts/hammer.min.js"></script>
+    <script src="scripts/jquery.hammer.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script src="scripts/angular-locale_fr-fr.js"></script>
+    <script src="scripts/index.js"></script>
+    <script src="scripts/controllers/homeControl.js"></script>
+    <script src="scripts/controllers/actuControl.js"></script>
+    <script src="scripts/controllers/resultControl.js"></script>
+
+
+
+</body>
+</html>

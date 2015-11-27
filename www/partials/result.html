@@ -1,0 +1,45 @@
+<section class="view" id="result_view" ng-controller="resultControl">
+    <div class="content">
+            <div class="button_carre_ext" ng-click="filtre_comp($event)">
+                <div class="button_filter">
+                  <p class="button_carre_text">Séniors 1</p>
+              </div>
+            </div>
+            <div class="button_carre_ext" ng-click="filtre_comp($event)">
+                <div class="button_filter">
+                  <p class="button_carre_text">Séniors 2</p>
+              </div>
+            </div>
+            <div class="button_carre_ext" ng-click="filtre_comp($event)">
+                <div class="button_filter">
+                  <p class="button_carre_text">Coupe de France</p>
+              </div>
+            </div>
+            <div class="button_carre_ext" ng-click="filtre_comp($event)">
+                <div class="button_filter">
+                  <p class="button_carre_text">Coupe Raffin</p>
+              </div>
+            </div>
+          <section class="list_item">
+            <div class="match_line col-xs-12" id="{{m.id}}" ng-repeat="m in matches.posts">
+                <a href="#" class="col-xs-12">
+                    <div class="wpcm-date col-xs-12">
+                        <div class="wpcm-date-date col-xs-12">{{m.date | date_format:'dd MMM yyyy'}}</div>
+                    </div>
+                    <div class="opponent home col-xs-5">
+                        {{club[m.custom_fields.wpcm_home_club].title}}
+                        <img src="{{club[m.custom_fields.wpcm_home_club].img}}" class="attachment-crest-small" alt="{{club[m.custom_fields.wpcm_home_club].alt}}">
+                    </div>
+                    <div class="result col-xs-2 loss">{{m.custom_fields.wpcm_home_goals | clear}} - {{m.custom_fields.wpcm_away_goals | clear}}</div>
+                    <div class="opponent away col-xs-5">
+                        <img src="{{club[m.custom_fields.wpcm_away_club].img}}" class="attachment-crest-small" alt="{{club[m.custom_fields.wpcm_away_club].alt}}">
+                        {{club[m.custom_fields.wpcm_away_club].title}}
+
+                    </div>
+                </a>
+            </div>
+        </section>
+    </div>
+</section>
+
+
