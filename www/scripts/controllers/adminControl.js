@@ -1,5 +1,19 @@
-    app.controller('homeControl', function ($scope, $http) {
-        $scope.menu.dir = 'home';
-        $scope.menu.header = 'FC Ste Hélène';
+    app.controller('adminControl', function ($scope, $http, $rootScope) {
+        $scope.menu.dir = 'admin';
+        $scope.menu.header = 'Administration';
+
+        /*$('input').blur( function() {
+        	if($(this).val().length != 0){
+        		$(this).next('label').addClass('no_empty');
+        	} else  {
+        		$(this).next('label').removeClass('no_empty');
+        	}
+
+        })*/
+
+        $scope.log = function(){ 
+        	if($scope.user != '' && $scope.password != '')
+        		$rootScope.loader = 1;
+        };
         
     });

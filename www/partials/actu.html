@@ -1,27 +1,47 @@
 <section class="view" id="#actu_view" ng-controller="actuControl" >
-    <section class="content" ng-class="{visible: panel == 0}">
-        <article ng-repeat="p in posts.posts" id="{{$index}}" class="col-xs-12" >
+    <section class="content" ng-show="panel == 0">
+        <article ng-repeat="p in posts.posts" id="{{p.id}}" class="col-xs-12" >
+            <div ng-click="share_id(p.id)">
 
-            <div class="blog-item-container ">
+                <div class="blog-item-container ">
 
-                <div class="col-xs-4 blog-media">
-                    <img src="{{p.attachments[0].images.thumbnail.url}}">
+                    <div class="col-xs-4 blog-media">
+                        <img src="{{p.attachments[0].images.thumbnail.url}}">
+                    </div>
+                    <div class="col-xs-8 date_block">
+                        <span class="left">{{p.author.name}}</span><span class="right">{{p.date | date_format:'dd MMM yyyy'}}</span>
+                    </div>
+                    <div class="col-xs-8 blog-top">
+                        <p class="blog-title">
+                            {{p.title}}
+                        </p>
+                    </div>
                 </div>
-                <div class="col-xs-8 date_block">
-                    <span class="left">{{p.author.name}}</span><span class="right">{{p.date | date_format:'dd MMM yyyy'}}</span>
-                </div>
-                <div class="col-xs-8 blog-top">
-                    <a href="#" class="blog-title" ng-click="share_id(p.id)">
-                        {{p.title}}
-                    </a>  
-                </div>
-            </div>
-        
+            </div> 
         </article>
     </section>
-    <section class="content" ng-class="{visible: panel == 1}">
-        <article id="the_post" ng-class="{visible: panel == 1}">
-            azertyjokbopmfdsj
+    <section class="content" id="one_art">
+        <article  ng-repeat="pu in posts.posts" id="{{pu.id}}" ng-show="the_post == {{pu.id}} && panel == 1" class=" col-xs-12">
+            <div class="blog-item-container ">
+                <div class="close-one"><i class="fa fa-times" ng-click="share_id(0)"></i></div>
+                <div class="col-xs-4 blog-media">
+                    <img src="{{pu.attachments[0].images.thumbnail.url}}">
+                </div>
+                <div class="col-xs-8 date_block">
+                    <span class="left">{{pu.author.name}}</span><span class="right">{{pu.date | date_format:'dd MMM yyyy'}}</span>
+                </div>
+                <div class="col-xs-8 blog-top">
+                    <p class="blog-title">
+                        {{pu.title}}
+                    </p>
+                </div>
+                 <div class="col-xs-12 blog-content" ng-bind-html="pu.content | convertHtml">
+                </div>
+                <div class="col-xs-12 blog-media">
+                    <img src="{{pu.attachments[0].images.large.url}}">
+                </div>
+            </div>
+
         </article>
     </section>
 </section>

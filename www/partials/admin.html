@@ -1,8 +1,24 @@
-<section class="view" id="home_view" ng-controller="homeControl">
-    <div class="content">
-        admin
+<section class="view" id="admin_view" ng-controller="adminControl">
+	<div class="content">
+		<form name="auth_form" ng-submit="log()">
+			<p>
+				<input type="text" class="user_field" name="user_field" ng-model="user" ng-minlength="1">
+				<label for="user_field" class="admin_label" ng-class="{no_empty : auth_form.user_field.$dirty && user != ''}">
+					<span class="label_text">Utilisateur</span>
+				</label>
+			</p>
+			<p>
+				<input type="password" class="pass_field" name="pass_field" ng-model="password">
+				<label for="pass_field" class="admin_label"  ng-class="{no_empty : auth_form.pass_field.$dirty && password != ''}">
+					<span class="label_text">Password</span>
+				</label>
+			</p>
+			<p>
+				<input type="submit" class="submit btn" value="Connexion">
+			</p>
+		</form>
 
-    </div>
+	</div>
 </section>
 
 

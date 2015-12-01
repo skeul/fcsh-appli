@@ -1,13 +1,12 @@
-app.controller('actuControl', function ($scope, $http) {
-    $scope.menu.dir = 'actu';
-    $scope.menu.header = 'Actualités';
+app.controller('classControl', function ($scope, $http, $rootScope) {
+    $scope.menu.dir = 'class';
+    $scope.menu.header = 'Classement';
 
 
 
-    $http.get('http://fcsh.fr/api/get_posts/?json=get_posts').success(function (response) {
+    $http.get('http://fcsh.fr/api/widgets/get_sidebar/?sidebar_id=sidebar-1').success(function (response) {
 
-    	$scope.posts = response;
-    	console.log("response ======" + JSON.stringify($scope.posts, null, 4));
+    	$scope.cla = response;
     }).error(function (event) {
 
                console.log('error: ' + JSON.stringify(event, null, 4));

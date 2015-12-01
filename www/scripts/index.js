@@ -23,6 +23,7 @@ var app = angular.module('app', ['ngRoute']).run(function($rootScope, $http) {
     $rootScope.menu = {};
     $rootScope.menu.dir = 'home';
     $rootScope.menu.header = 'FCSH';
+    $rootScope.loader =0;
 
     $http.get('http://fcsh.fr/api/get_club/?json=get_club&count=100').success(function (response) {
 
@@ -86,6 +87,16 @@ angular.module('app').filter('date_format', function ($filter) {
         };
     });
 
+app.filter('convertHtml', function ($sce) {
+        return function (value) {
+            if (!value ) return '';
+
+
+                return $sce.trustAsHtml(value);
+            
+        }
+    });
+
 
 var $page = $('.app');
 $page.hammer()
@@ -99,9 +110,6 @@ $page.hammer()
                 $(".pusher-container, .nav-menu").removeClass('open');
             }
 
-        })
-        .on('drag', function(e) {
-            console.log(e);
         })
 
 $("#button-menu").on('click touch', function(){

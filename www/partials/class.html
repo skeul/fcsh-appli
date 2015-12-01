@@ -1,6 +1,8 @@
-<section class="view" id="home_view" ng-controller="homeControl">
+<section class="view" id="class_view" ng-controller="classControl">
     <div class="content">
-        classements
+        <article ng-repeat="c in cla.widgets" ng-if="c.params.widget_name == 'WPCM Classements'" ng-bind-html="c.widget | convertHtml" id="{{$index}}" class="col-xs-12" >
+
+        </article>
     </div>
 </section>
 
