@@ -22,14 +22,11 @@
 html,.app {
     margin: 0;
     position: relative;
-    height:100%;
+    height: calc(100% - 10px);
     background: #CECECE;
     font-family: 'caviar';
 }
 
-html {
-    border-top: 15px solid #2F363B;
-}
 
 html .app a {
     text-decoration: none;
@@ -45,7 +42,7 @@ html .app a {
     top: 0;bottom: 0;left: 0;right: 0;
     background: #000000;
     opacity: 0.7;
-    z-index: 1;
+    z-index: 1000;
 }
 .load{
   position: absolute;
@@ -65,26 +62,32 @@ html .app a {
     top: 0;
     left: 0;
     right: 0;
-    height: 50px;
+    height: 70px;
     line-height: 50px;
     color: #f6f6f6;
     text-transform: capitalize;
     text-align: center;
     background: #2F363B;
-    padding-top: 0;
+    padding-top: 20px;
     font-size: 2em;
     letter-spacing: 2px;
     z-index: 9999;
 }
 
+.header .header_text {
+    display: block;
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+
 .first-container {
     position: relative;
     overflow-x: hidden; 
     height: 100%;
-    -webkit-perspective: 1500px;
-    perspective: 1500px;
-    -webkit-perspective-origin: 0% 50%;
-    perspective-origin: 0% 50%;
+    margin-top: 20px;
 }
 
 .pusher-container {
@@ -94,19 +97,17 @@ html .app a {
     height: 100%;
     -webkit-transition: -webkit-transform 0.5s;
     transition: transform 0.5s;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
 }
 
-.pusher-container.open {
-    -webkit-transform: translate3d(80%, 0, 0);
-    transform: translate3d(80%, 0, 0);
+.pusher-container.open, .header_text.open {
+    -webkit-transform: translate(80%, 0);
+    transform: translate(80%, 0);
 }
 
 /* -------------------------- MENU --------------------------------------*/
 #button-menu {
     position: absolute;
-    left:0;
+    right:-50px;
     top: 0;
     width: 40px;
     height: 50px;
@@ -440,32 +441,26 @@ html .app a {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 100;
-    visibility: hidden;
+    z-index: 1000000;
     width: 80%;
     height: 100%;
     background: #2F363B;
     color: #f6f6f6;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
-    -webkit-transform: translate3d(-100%, 0, 0) rotateY(90deg);
-    transform: translate3d(-100%, 0, 0) rotateY(90deg);
-    -webkit-transform-origin: 0% 50%;
-    transform-origin: 0% 50%;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
+    -webkit-transform: translate(-100%, 0);
+    transform: translate(-100%, 0);
 }
 
 .nav-menu.open {
-    visibility: visible;
     -webkit-transition-delay: 0.2s;
     transition-delay: 0.2s;
     -webkit-transition-timing-function: ease-in-out;
     transition-timing-function: ease-in-out;
     -webkit-transition-property: -webkit-transform;
     transition-property: transform;
-    -webkit-transform: translate3d(-100%, 0, 0) rotateY(0deg);
-    transform: translate3d(-100%, 0, 0) rotateY(0deg);
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
     border-right: 1px solid #cecece;
 
 }
@@ -476,6 +471,10 @@ html .app a {
     list-style: none;
 }
 
+.nav-menu ul li {
+    border-bottom: 1px solid #4E4D4D;
+}
+
 .nav-menu ul li a{
     display: block;
     font-size: 1em;
@@ -483,13 +482,26 @@ html .app a {
     outline: none;
     color: #f6f6f6;
     text-transform: uppercase;
-    border-bottom: 1px solid #4E4D4D;
     letter-spacing: 1px;
+}
+
+.nav-menu ul li a:before{
+    padding-right: 1em;
 }
 
 .nav-menu ul li a.current{
     background: #1B1B1B;
 }
+
+.nav-menu .menu-logo {
+    padding: 1em 0;  
+    text-align: center;
+}
+
+.nav-menu .menu-logo img {
+    width: 4em;
+}
+
 
 .main-view {
     min-height: 100%;
@@ -555,20 +567,31 @@ html .app a {
     text-align: center;
     padding:  0;
     resize: none;
+    border: 1px solid #2F363B;
+    color: #f6f6f6;
+
 }
 
 .button_carre:before, .button_rectangle:before {
-    color: #fff;
+    color: #f6f6f6;
     font-size: 2em;
 }
 
 .button_carre_text, .button_rectangle_text {
-    color: #f6f6f6;
     padding-top: 0.75em;
-    letter-spacing: 1px
+    letter-spacing: 1px;
+    color: #f6f6f6;
+
 }
 
+.button_filter.comp_act {
+    background: #f6f6f6;
+}
 
+.button_filter.comp_act .button_carre_text {
+    color: #2F363B;
+
+}
 
 
 
@@ -620,7 +643,8 @@ html .app a {
 
 .close-one {
     text-align: right;
-    font-size: 1.5em;
+    font-size: 1.7em;
+    padding-right: 0.2em;
 }
 
 .blog-content {
@@ -634,6 +658,7 @@ html .app a {
 .match_line {
     margin-top: 10px;
 }
+
 
 .match_line a {
     background: #fff;
@@ -708,7 +733,7 @@ html .app a {
 
 #admin_view input {
     border:none;
-    background: #ffffff;
+    background: none;
     padding: 0.4em;
     width: 100%;
     position: relative;
@@ -797,7 +822,7 @@ html .app a {
 
 .wpcm {
     background: #fff;
-    width: 80%;
+    width: 100%;
     padding: 1em;
     margin: auto;
 }
@@ -817,4 +842,141 @@ html .app a {
 .highlighted {
     background: #2F363B;
     color: #f6f6f6;
+}
+
+
+
+
+/*---------------------- loader style IOS -------------------------- */
+
+.spinner {
+  font-size: 48px;
+  position: relative;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+}
+.spinner.center {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.spinner .spinner-blade {
+  position: absolute;
+  left: 0.4629em;
+  bottom: 0;
+  width: 0.074em;
+  height: 0.2777em;
+  border-radius: 0.0555em;
+  background-color: transparent;
+  -webkit-transform-origin: center -0.2222em;
+      -ms-transform-origin: center -0.2222em;
+          transform-origin: center -0.2222em;
+  -webkit-animation: spinner-fade 1s infinite linear;
+          animation: spinner-fade 1s infinite linear;
+}
+.spinner .spinner-blade:nth-child(1) {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+.spinner .spinner-blade:nth-child(2) {
+  -webkit-animation-delay: 0.083s;
+          animation-delay: 0.083s;
+  -webkit-transform: rotate(30deg);
+      -ms-transform: rotate(30deg);
+          transform: rotate(30deg);
+}
+.spinner .spinner-blade:nth-child(3) {
+  -webkit-animation-delay: 0.166s;
+          animation-delay: 0.166s;
+  -webkit-transform: rotate(60deg);
+      -ms-transform: rotate(60deg);
+          transform: rotate(60deg);
+}
+.spinner .spinner-blade:nth-child(4) {
+  -webkit-animation-delay: 0.249s;
+          animation-delay: 0.249s;
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.spinner .spinner-blade:nth-child(5) {
+  -webkit-animation-delay: 0.332s;
+          animation-delay: 0.332s;
+  -webkit-transform: rotate(120deg);
+      -ms-transform: rotate(120deg);
+          transform: rotate(120deg);
+}
+.spinner .spinner-blade:nth-child(6) {
+  -webkit-animation-delay: 0.415s;
+          animation-delay: 0.415s;
+  -webkit-transform: rotate(150deg);
+      -ms-transform: rotate(150deg);
+          transform: rotate(150deg);
+}
+.spinner .spinner-blade:nth-child(7) {
+  -webkit-animation-delay: 0.498s;
+          animation-delay: 0.498s;
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.spinner .spinner-blade:nth-child(8) {
+  -webkit-animation-delay: 0.581s;
+          animation-delay: 0.581s;
+  -webkit-transform: rotate(210deg);
+      -ms-transform: rotate(210deg);
+          transform: rotate(210deg);
+}
+.spinner .spinner-blade:nth-child(9) {
+  -webkit-animation-delay: 0.664s;
+          animation-delay: 0.664s;
+  -webkit-transform: rotate(240deg);
+      -ms-transform: rotate(240deg);
+          transform: rotate(240deg);
+}
+.spinner .spinner-blade:nth-child(10) {
+  -webkit-animation-delay: 0.747s;
+          animation-delay: 0.747s;
+  -webkit-transform: rotate(270deg);
+      -ms-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+.spinner .spinner-blade:nth-child(11) {
+  -webkit-animation-delay: 0.83s;
+          animation-delay: 0.83s;
+  -webkit-transform: rotate(300deg);
+      -ms-transform: rotate(300deg);
+          transform: rotate(300deg);
+}
+.spinner .spinner-blade:nth-child(12) {
+  -webkit-animation-delay: 0.913s;
+          animation-delay: 0.913s;
+  -webkit-transform: rotate(330deg);
+      -ms-transform: rotate(330deg);
+          transform: rotate(330deg);
+}
+
+@-webkit-keyframes spinner-fade {
+  0% {
+    background-color: #69717d;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes spinner-fade {
+  0% {
+    background-color: #69717d;
+  }
+  100% {
+    background-color: transparent;
+  }
 }

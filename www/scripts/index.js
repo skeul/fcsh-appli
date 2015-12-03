@@ -115,10 +115,10 @@ $page.hammer()
 $("#button-menu").on('click touch', function(){
     if($(this).hasClass('open')) {
         $(this).removeClass('open').addClass('closed');
-        $(".pusher-container, .nav-menu").removeClass('open');
+        $(".pusher-container, .nav-menu, .header_text").removeClass('open');
     }
     else {
-        $(".pusher-container, .nav-menu").addClass('open');
+        $(".pusher-container, .nav-menu, .header_text").addClass('open');
         $(this).removeClass('closed').addClass('open');
     }
 
@@ -127,7 +127,7 @@ $("#button-menu").on('click touch', function(){
 $(".nav-menu ul li a").on('click touch', function(){
     if($('#button-menu').hasClass('open')) {
         $("#button-menu").removeClass('open').addClass('closed');
-        $(".pusher-container, .nav-menu").removeClass('open');
+        $(".pusher-container, .nav-menu, .header_text").removeClass('open');
     }
    
 })

@@ -1,27 +1,27 @@
 <section class="view" id="result_view" ng-controller="resultControl">
     <div class="content">
-            <div class="button_carre_ext" ng-click="filtre_comp($event)">
-                <div class="button_filter">
+            <div class="button_carre_ext" ng-click="filtre_comp(7)">
+                <div class="button_filter" ng-class="{comp_act : comp == 7}">
                   <p class="button_carre_text">Séniors 1</p>
               </div>
             </div>
-            <div class="button_carre_ext" ng-click="filtre_comp($event)">
-                <div class="button_filter">
+            <div class="button_carre_ext" ng-click="filtre_comp(8)">
+                <div class="button_filter" ng-class="{comp_act : comp == 8}">
                   <p class="button_carre_text">Séniors 2</p>
               </div>
             </div>
-            <div class="button_carre_ext" ng-click="filtre_comp($event)">
-                <div class="button_filter">
+            <div class="button_carre_ext" ng-click="filtre_comp(6)">
+                <div class="button_filter" ng-class="{comp_act : comp == 6}">
                   <p class="button_carre_text">Coupe de France</p>
               </div>
             </div>
-            <div class="button_carre_ext" ng-click="filtre_comp($event)">
-                <div class="button_filter">
+            <div class="button_carre_ext" ng-click="filtre_comp(13)">
+                <div class="button_filter" ng-class="{comp_act : comp == 13}">
                   <p class="button_carre_text">Coupe Raffin</p>
               </div>
             </div>
-          <section class="list_item">
-            <div class="match_line col-xs-12" id="{{m.id}}" ng-repeat="m in matches.posts">
+          <section class="list_item" >
+            <div class="match_line col-xs-12" id="{{m.id}}" ng-repeat="m in matches.posts" ng-show="comp == {{m.comp[0].term_id}}">
                 <a href="#" class="col-xs-12">
                     <div class="wpcm-date col-xs-12">
                         <div class="wpcm-date-date col-xs-12">{{m.date | date_format:'dd MMM yyyy'}}</div>

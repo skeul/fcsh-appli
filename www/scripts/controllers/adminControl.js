@@ -1,4 +1,4 @@
-    app.controller('adminControl', function ($scope, $http, $rootScope) {
+    app.controller('adminControl', function ($scope, $http, $rootScope, $timeout) {
         $scope.menu.dir = 'admin';
         $scope.menu.header = 'Administration';
 
@@ -14,6 +14,9 @@
         $scope.log = function(){ 
         	if($scope.user != '' && $scope.password != '')
         		$rootScope.loader = 1;
+                $timeout(function() {$rootScope.loader =0; }, 500);
+       
+
         };
         
     });

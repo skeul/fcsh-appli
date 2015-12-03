@@ -17,34 +17,53 @@
 
 </head>
 <body class="app">
-        <div class="loader" ng-show="loader">
-        <div class="load fa fa-spin fa-spinner"></div>
+    <header class="header">
+        <span class="header_text">{{menu.header}}</span>
+    </header>
+    <nav class="nav-menu" id="menu">
+        <div id="button-menu" >
+            <span class="top"></span>
+            <span class="middle"></span>
+            <span class="bottom"></span>
+        </div>
+
+        <ul>
+            <li class="menu-logo">
+                <img src="img/FCSH.png" alt="logo FCSH">
+            </li>
+            <li><a href="#home" ng-class="{current: menu.dir == 'home'}" class="fa fa-home">Accueil</a></li>
+            <li><a href="#actu" ng-class="{current: menu.dir == 'actu'}" class="fa fa-th-list">Actualités</a></li>
+            <li><a href="#result" ng-class="{current: menu.dir == 'result'}" class="fa fa-trophy">Résultats</a></li>
+            <li><a href="#class" ng-class="{current: menu.dir == 'class'}" class="fa fa-list">Classements</a></li>
+            <li><a href="#setting" ng-class="{current: menu.dir == 'setting'}" class="fa fa-cog">Réglages</a></li>
+            <li><a href="#admin" ng-class="{current: menu.dir == 'admin'}" class="fa fa-user">Administration</a></li>
+        </ul>
+    </nav>
+
+    <div class="loader" ng-show="loader">
+        <div class="overlay">
+          <div class="spinner center">
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+          </div>
+        </div>
     </div>
 
     <div class="first-container">
         <div class="pusher-container">
-            <header class="header">
-                  
-            <div id="button-menu" >
-                <span class="top"></span>
-                <span class="middle"></span>
-                <span class="bottom"></span>
-            </div>
-            {{menu.header}}
-        </header>
 
-            <nav class="nav-menu" id="menu">
-                    <ul>
-                    <li><a href="#home" ng-class="{current: menu.dir == 'home'}">Accueil</a></li>
-                    <li><a href="#actu" ng-class="{current: menu.dir == 'actu'}">Actualités</a></li>
-                    <li><a href="#result" ng-class="{current: menu.dir == 'result'}">Résultats</a></li>
-                    <li><a href="#class" ng-class="{current: menu.dir == 'class'}">Classements</a></li>
-                    <li><a href="#setting" ng-class="{current: menu.dir == 'setting'}">Réglages</a></li>
-                    <li><a href="#admin" ng-class="{current: menu.dir == 'admin'}">Administration</a></li>
-                    </ul>
-                </nav>
 
-        <section class="main-view" ng-view></section>
+            <section class="main-view" ng-view></section>
         </div>
     </div>
 

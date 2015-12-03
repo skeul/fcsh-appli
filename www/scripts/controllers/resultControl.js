@@ -7,6 +7,7 @@ app.controller('resultControl', function ($rootScope, $scope, $http) {
     $http.get('http://fcsh.fr/api/get_matches/?json=get_matches&count=1000').success(function (response) {
 
     	$scope.matches = response;
+        $scope.comp = 7;
         $rootScope.loader =0;
     }).error(function (event) {
 
@@ -14,8 +15,8 @@ app.controller('resultControl', function ($rootScope, $scope, $http) {
             });
 
 
-    $scope.filtre_comp = function (e) {
-                $elem = $(e.currentTarget);
+    $scope.filtre_comp = function (co) {
+                $scope.comp = co;
 
             };
 
